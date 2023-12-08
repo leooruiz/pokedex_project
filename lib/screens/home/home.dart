@@ -80,3 +80,10 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+Future<Pokemon> getPokemons(int index) async {
+  PokemonService pokemon = PokemonService();
+  List<Pokemon> pokemonList = await pokemon.getAll();
+  print(pokemonList[index]);
+  return pokemonList[index];
+}
