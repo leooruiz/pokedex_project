@@ -23,3 +23,21 @@ class PokemonService {
     // print(urlList);
     return urlList;
   }
+
+//<List<Map<String, dynamic>>
+  Future getAll() async {
+    List urlList = await getUrl(); // pegando lista de urls neste escopo
+    List<Pokemon> pokemonList = [];
+    for (int i = 1; i < urlList.length; i++) {
+      http.Response response =
+          await client.get(Uri.parse(urlList[i])); //acessando cada url da lista
+      Map<String, dynamic> pokemonMap = json.decode(response.body);
+      pokemonList.add(Pokemon.fromMap(pokemonMap));
+    }
+    return pokemonList;
+  }
+
+  http.Client client = InterceptedClient.build(interceptors: [
+    LoggingInterceptor(),
+  ]);
+}
