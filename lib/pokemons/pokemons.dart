@@ -1,7 +1,7 @@
 class Pokemon {
-  String? name;
-  Uri? image;
-  int? id;
+  final String? name;
+  final Uri? image;
+  final int? id;
 
   Pokemon({
     required this.name,
