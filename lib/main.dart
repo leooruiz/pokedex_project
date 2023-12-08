@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_project/screens/details/details.dart';
+import 'package:pokedex_project/services/pokemon_service.dart';
+import 'package:pokedex_project/theme/my_theme.dart';
+import 'screens/home/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  PokemonService pokemons = PokemonService();
+  pokemons.getAll();
+  runApp(const PokedexApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PokedexApp extends StatelessWidget {
+  const PokedexApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: myTheme,
+      home: const Home(),
+      routes: {
+        'details': (context) => const Details(),
+      },
+    );
   }
 }
