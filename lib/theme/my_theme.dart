@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 ThemeData myTheme = ThemeData(
-    appBarTheme: AppBarTheme(
-        iconTheme: const IconThemeData(color: Colors.white),
+    appBarTheme: const AppBarTheme(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.indigo,
-        titleTextStyle: const TextStyle(
+        titleTextStyle: TextStyle(
           color: Colors.white,
         )),
-    iconTheme: IconThemeData(color: Colors.white),
-    textTheme: TextTheme(
+    iconTheme: const IconThemeData(color: Colors.white),
+    textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 12, color: Colors.white),
       bodyLarge: TextStyle(fontSize: 15, color: Colors.white),
       titleLarge: TextStyle(
