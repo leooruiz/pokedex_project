@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasError) {
-              return Text('Something went wrong');
+              return Center(child: const Text('Something went wrong'));
             } else {
               List<Map> pokemons = snapshot.data;
               return CustomScrollView(
