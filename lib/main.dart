@@ -5,8 +5,8 @@ import 'package:pokedex_project/theme/my_theme.dart';
 import 'screens/home/home.dart';
 
 void main() {
-  PokemonService pokemons = PokemonService();
-  pokemons.getAll();
+  PokemonService service = PokemonService();
+  service.getAll();
   runApp(const PokedexApp());
 }
 
