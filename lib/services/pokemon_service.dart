@@ -8,6 +8,10 @@ import 'package:pokedex_project/services/http_interceptor.dart';
 class PokemonService {
   String url1 = 'https://pokeapi.co/api/v2/pokemon-form/';
 
+  http.Client client = InterceptedClient.build(interceptors: [
+    LoggingInterceptor(),
+  ]);
+  
   Future<List<String>> getUrl() async {
     http.Response response =
         await client.get(Uri.parse(url1)); //URL DE TODOS OS POKEMONS
@@ -25,9 +29,11 @@ class PokemonService {
   }
 
 //<List<Map<String, dynamic>>
-  Future getAll() async {
+  Future<List<Pokemon>>getAll() async {
     List urlList = await getUrl(); // pegando lista de urls neste escopo
+
     List<Pokemon> pokemonList = [];
+
     for (int i = 1; i < urlList.length; i++) {
       http.Response response =
           await client.get(Uri.parse(urlList[i])); //acessando cada url da lista
@@ -37,7 +43,4 @@ class PokemonService {
     return pokemonList;
   }
 
-  http.Client client = InterceptedClient.build(interceptors: [
-    LoggingInterceptor(),
-  ]);
 }
