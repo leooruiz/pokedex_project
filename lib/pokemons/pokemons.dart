@@ -1,6 +1,6 @@
 class Pokemon {
   final String? name;
-  final Uri? image;
+  final String image;
   final int? id;
 
   Pokemon({
@@ -12,14 +12,14 @@ class Pokemon {
   factory Pokemon.fromMap(Map<String, dynamic> map) {
     return Pokemon(
         name: map['name'],
-        image: Uri.parse(map['sprites']['front_default']),
+        image: map['sprites']['front_default'].toString(),
         id: map['id']);
   }
 
   Pokemon fromMap(Map<String, dynamic> map) {
     return Pokemon(
         name: map['name'],
-        image: Uri.parse(map['sprites']['front_default']),
+        image: map['sprites']['front_default'].toString(),
         id: map['id']);
   }
 
@@ -27,7 +27,7 @@ class Pokemon {
       : //
 
         name = map['name'],
-        image = Uri.parse(map['sprites']['front_default']),
+        image = map['sprites']['front_default'].toString(),
         id = map['id'];
 
   @override
