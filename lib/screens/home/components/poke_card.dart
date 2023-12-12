@@ -92,9 +92,7 @@ class PokeCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          width: 70,
-                          height: 120,
+                        Expanded(
                           child: Image.network(
                             image,
                             fit: BoxFit.cover,
