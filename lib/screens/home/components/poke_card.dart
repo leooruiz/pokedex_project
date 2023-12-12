@@ -13,6 +13,7 @@ class PokeCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: InkWell(
+          borderRadius: BorderRadius.circular(20),
           child: Card(
             color: Colors.indigo[600],
             //TODO: MAKE ALL CARDS RESPONSIBLE
@@ -25,7 +26,8 @@ class PokeCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        name,
+                        name.replaceFirst(
+                            RegExp(name[0]), name[0].toUpperCase()),
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       id.toString().length == 1
@@ -53,7 +55,7 @@ class PokeCard extends StatelessWidget {
                   ),
                   Expanded(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
