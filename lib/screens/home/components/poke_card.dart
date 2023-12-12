@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
-import 'package:pokedex_project/screens/details/details.dart';
-import 'package:pokedex_project/services/pokemon_service.dart';
 
 class PokeCard extends StatelessWidget {
   const PokeCard(
@@ -30,11 +27,28 @@ class PokeCard extends StatelessWidget {
                       Text(
                         name,
                         style: Theme.of(context).textTheme.bodyLarge,
-                      ), //TODO: NAME
-                      Text(
-                        '$id',
-                        style: TextStyle(color: Colors.white38),
-                      ), //TODO: ID
+                      ),
+                      id.toString().length == 1
+                          ? Text(
+                              '#000$id',
+                              style: const TextStyle(color: Colors.white38),
+                            )
+                          : id.toString().length == 1
+                              ? Text(
+                                  '#00$id',
+                                  style: const TextStyle(color: Colors.white38),
+                                )
+                              : id.toString().length == 3
+                                  ? Text(
+                                      '#0$id',
+                                      style: const TextStyle(
+                                          color: Colors.white38),
+                                    )
+                                  : Text(
+                                      '#$id',
+                                      style: const TextStyle(
+                                          color: Colors.white38),
+                                    ),
                     ],
                   ),
                   Expanded(
@@ -48,7 +62,7 @@ class PokeCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 5.0),
                               child: Container(
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.all(3),
+                                padding: const EdgeInsets.all(3),
                                 width: 50,
                                 height: 25,
                                 decoration: BoxDecoration(
@@ -63,7 +77,7 @@ class PokeCard extends StatelessWidget {
                             ),
                             Container(
                               alignment: Alignment.center,
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               width: 50,
                               height: 25,
                               decoration: BoxDecoration(
@@ -78,7 +92,7 @@ class PokeCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Container(
+                        SizedBox(
                           width: 70,
                           height: 120,
                           child: Image.network(
