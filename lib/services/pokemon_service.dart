@@ -11,29 +11,26 @@ class PokemonService {
   http.Client client = InterceptedClient.build(interceptors: [
     LoggingInterceptor(),
   ]);
-  
-  Future<List<String>> getUrl() async {
-    http.Response response =
-        await client.get(Uri.parse(url1)); //URL DE TODOS OS POKEMONS
-    Map<String, dynamic> map =
-        json.decode(response.body); //TRANSFORMANDO DE JSON PARA MAP
-    List resultsList =
-        map['results']; //PEGANDO A LISTA DE NOMES E URLS DOS POKEMONS
+
+  Future<List<String>> getUrls() async {
     List<String> urlList = [];
-    //GETTING URL
-    for (int index = 0; index < resultsList.length; index++) {
-      urlList.add(resultsList[index]['url']);
+    var i = 1;
+    http.Response response = await client.get(Uri.parse('$url1$i'));
+    for (var i = 1; response.statusCode != 404; i++) {
+      if (response.statusCode > 199 && response.statusCode < 300) {
+        //TODO: REPLACE 100 IN FOR TO response.statuscode!=404
+        response = await client.get(Uri.parse('$url1$i'));
+        String url = '$url1$i';
+        urlList.add(url); //TODO: FIX NULL SAFETY
+      }
     }
-    // print(urlList);
     return urlList;
   }
 
 //<List<Map<String, dynamic>>
-  Future<List<Pokemon>>getAll() async {
-    List urlList = await getUrl(); // pegando lista de urls neste escopo
-
+  Future<List<Pokemon>> getAll() async {
+    List urlList = await getUrls(); // pegando lista de urls neste escopo
     List<Pokemon> pokemonList = [];
-
     for (int i = 1; i < urlList.length; i++) {
       http.Response response =
           await client.get(Uri.parse(urlList[i])); //acessando cada url da lista
@@ -42,5 +39,4 @@ class PokemonService {
     }
     return pokemonList;
   }
-
 }
