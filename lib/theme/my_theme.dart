@@ -11,7 +11,10 @@ ThemeData myTheme = ThemeData(
         )),
     iconTheme: const IconThemeData(color: Colors.white),
     textTheme: const TextTheme(
-      bodySmall: TextStyle(fontSize: 12, color: Colors.white),
+      bodySmall: TextStyle(
+        fontSize: 12,
+        color: Colors.white,
+      ),
       bodyMedium: TextStyle(
         fontSize: 14,
         color: Colors.white,
@@ -22,12 +25,16 @@ ThemeData myTheme = ThemeData(
         color: Colors.white,
       ),
       titleLarge: TextStyle(
-          fontSize: 22,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          overflow: TextOverflow.ellipsis),
+        fontSize: 22,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        overflow: TextOverflow.ellipsis,
+      ),
       titleMedium: TextStyle(
-          fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
+        fontSize: 18,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     primaryColorDark: Colors.grey[900],
     drawerTheme: const DrawerThemeData(
