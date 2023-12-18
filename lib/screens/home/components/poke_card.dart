@@ -1,105 +1,108 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_project/id_text.dart';
+import 'package:pokedex_project/pokemons/pokemons.dart';
+import 'package:pokedex_project/theme/card_color.dart';
+import 'package:pokedex_project/theme/type_color.dart';
 
 class PokeCard extends StatelessWidget {
-  const PokeCard(
-      {super.key, required this.name, required this.image, required this.id});
-  final String name;
-  final String image;
-  final int id;
+  const PokeCard({
+    super.key,
+    required this.pokemon,
+  });
+  final Pokemon pokemon;
 
-//TODO: PUT NAME, IMAGE AND ID
   @override
   Widget build(BuildContext context) {
+    final pokemonNameUpperFirst = pokemon.name.replaceFirst(RegExp(pokemon.name[0]),
+                                pokemon.name[0].toUpperCase());              
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: InkWell(
           borderRadius: BorderRadius.circular(20),
           child: Card(
-            color: Colors.indigo[600],
+            color: cardTypeColor(pokemon.type1.toString()),
             //TODO: MAKE ALL CARDS RESPONSIBLE
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        name.replaceFirst(
-                            RegExp(name[0]), name[0].toUpperCase()),
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                      id.toString().length == 1
-                          ? Text(
-                              '#000$id',
-                              style: const TextStyle(color: Colors.white38),
-                            )
-                          : id.toString().length == 1
-                              ? Text(
-                                  '#00$id',
-                                  style: const TextStyle(color: Colors.white38),
-                                )
-                              : id.toString().length == 3
-                                  ? Text(
-                                      '#0$id',
-                                      style: const TextStyle(
-                                          color: Colors.white38),
-                                    )
-                                  : Text(
-                                      '#$id',
-                                      style: const TextStyle(
-                                          color: Colors.white38),
-                                    ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Text(pokemonNameUpperFirst,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: idText(pokemon,
+                              theme: const TextStyle(color: Colors.white38)),
+                        )
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 5.0),
-                              child: Container(
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 5, 5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
                                 alignment: Alignment.center,
                                 padding: const EdgeInsets.all(3),
-                                width: 50,
-                                height: 25,
+                                width: 60,
+                                height: 30,
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    color: typeColor(pokemon.type1),
+                                    borderRadius: BorderRadius.circular(15)),
                                 child: Text(
-                                  'grass',
+                                  pokemon.type1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ),
-                            ),
-                            Container(
-                              alignment: Alignment.center,
-                              padding: const EdgeInsets.all(3),
-                              width: 50,
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: Colors.purple,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(
-                                'poison',
-                                overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ),
-                          ],
+                              pokemon.type2 != null
+                                  ? Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        padding: const EdgeInsets.all(3),
+                                        width: 60,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          color: typeColor(pokemon.type2),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                        child: Text(
+                                          pokemon.type2!,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                              //TODO: O QUE EU DEVERIA COLOCAR NO LUGAR DE SIZEDBOX(QUERO DEIXAR VAZIO)
+                            ],
+                          ),
                         ),
                         Expanded(
                           child: Image.network(
-                            image,
-                            fit: BoxFit.cover,
+                            pokemon.image,
+                            fit: BoxFit.fitHeight,
+                            filterQuality: FilterQuality.high,
                           ),
-                        ), //TODO: IMAGE
+                        ),
                         // Image.network(image),
                       ],
                     ),
@@ -109,7 +112,8 @@ class PokeCard extends StatelessWidget {
             ),
           ),
           onTap: () {
-            Navigator.pushNamed(context, 'details');
+            Navigator.pushNamed(context, 'details',
+                arguments: Pokemon() = pokemon);
           }),
     );
   }
