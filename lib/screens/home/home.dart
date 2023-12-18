@@ -30,10 +30,6 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.filter_list)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search))
-        ],
       ),
       drawer: Drawer(
         backgroundColor: Theme.of(context).drawerTheme.backgroundColor,
