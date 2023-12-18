@@ -92,7 +92,6 @@ class PokeCard extends StatelessWidget {
                                       ),
                                     )
                                   : const SizedBox(),
-                              //TODO: O QUE EU DEVERIA COLOCAR NO LUGAR DE SIZEDBOX(QUERO DEIXAR VAZIO)
                             ],
                           ),
                         ),
