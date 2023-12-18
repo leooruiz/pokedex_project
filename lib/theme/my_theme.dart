@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 ThemeData myTheme = ThemeData(
+    progressIndicatorTheme:
+        const ProgressIndicatorThemeData(color: Colors.indigo),
     appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.indigo,
@@ -9,15 +11,25 @@ ThemeData myTheme = ThemeData(
         )),
     iconTheme: const IconThemeData(color: Colors.white),
     textTheme: const TextTheme(
-      bodyMedium: TextStyle(fontSize: 12, color: Colors.white),
-      bodyLarge: TextStyle(fontSize: 15, color: Colors.white),
-      titleLarge: TextStyle(
-        fontSize: 22,
+      bodySmall: TextStyle(fontSize: 12, color: Colors.white),
+      bodyMedium: TextStyle(
+        fontSize: 14,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
       ),
-      titleMedium: TextStyle(fontSize: 18, color: Colors.white),
-//TODO: TRY TO ADD FONT TO TEXTTHEME
+      bodyLarge: TextStyle(
+        fontSize: 16,
+        color: Colors.white,
+      ),
+      titleLarge: TextStyle(
+          fontSize: 22,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          overflow: TextOverflow.ellipsis),
+      titleMedium: TextStyle(
+          fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
     ),
     primaryColorDark: Colors.grey[900],
-    drawerTheme: DrawerThemeData(
-      backgroundColor: Colors.grey[900],
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: Colors.indigo,
     ));
