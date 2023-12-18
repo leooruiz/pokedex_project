@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/id_text.dart';
+import 'package:pokedex_project/helpers/helper.dart';
 import 'package:pokedex_project/pokemons/pokemons.dart';
 import 'package:pokedex_project/theme/card_color.dart';
 import 'package:pokedex_project/theme/type_color.dart';
@@ -13,8 +13,6 @@ class PokeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pokemonNameUpperFirst = pokemon.name.replaceFirst(RegExp(pokemon.name[0]),
-                                pokemon.name[0].toUpperCase());              
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: InkWell(
@@ -37,7 +35,7 @@ class PokeCard extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 3.0),
                             child: Text(
                               pokemonNameUpperFirst(pokemon),
-                            style: Theme.of(context).textTheme.bodyLarge,
+                              style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
                         ),
