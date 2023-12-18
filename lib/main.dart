@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/pokemons/pokemons.dart';
 import 'package:pokedex_project/screens/details/details.dart';
-import 'package:pokedex_project/services/pokemon_service.dart';
 import 'package:pokedex_project/theme/my_theme.dart';
 import 'screens/home/home.dart';
 
 void main() {
-  PokemonService service = PokemonService();
-  service.getAll();
   runApp(const PokedexApp());
 }
 
