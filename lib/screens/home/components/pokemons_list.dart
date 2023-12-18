@@ -56,7 +56,7 @@ class _PokemonsListState extends State<PokemonsList> {
                         ),
                       );
                     },
-                    childCount: pokemons.length, //TODO: IMPLEMENT LAZY LOAD
+                    childCount: pokemons.length,
                   ),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
