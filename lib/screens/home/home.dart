@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
-import 'package:pokedex_project/screens/home/components/poke_card.dart';
-import 'package:pokedex_project/services/pokemon_service.dart';
+import 'package:pokedex_project/screens/home/components/pokemons_list.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -14,12 +12,22 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Text(
+        title: Row(
+          children: [
+            Text(
           'Pokédex',
           style: TextStyle(
-              //TODO: REMOVE "!"
               color: Theme.of(context).appBarTheme.titleTextStyle!.color,
               fontSize: Theme.of(context).textTheme.titleLarge!.fontSize),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Icon(
+                Icons.catching_pokemon,
+                size: 30,
+              ),
+            ),
+          ],
         ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.filter_list)),
