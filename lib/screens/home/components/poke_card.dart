@@ -102,7 +102,6 @@ class PokeCard extends StatelessWidget {
                             filterQuality: FilterQuality.high,
                           ),
                         ),
-                        // Image.network(image),
                       ],
                     ),
                   )

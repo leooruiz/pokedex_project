@@ -8,7 +8,7 @@ Future<List<Map<String, dynamic>>> getPokemons() async {
   for (var i = 0; i < pokemonList.length; i++) {
     mapList.add({});
     mapList[i]['name'] =
-        pokemonList[i].name.toString(); //todos em formato de string
+        pokemonList[i].name.toString();
     mapList[i]['image'] = pokemonList[i].image.toString();
     mapList[i]['id'] = pokemonList[i].id;
     mapList[i]['type1'] = pokemonList[i].type1;

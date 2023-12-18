@@ -19,7 +19,6 @@ class _PokemonsListState extends State<PokemonsList> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder(
-        //tive dificuldade de lembrar do FutureBuilder
         future: getPokemons(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
