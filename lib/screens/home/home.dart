@@ -5,6 +5,7 @@ import 'package:pokedex_project/screens/home/components/pokemons_list.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
+  //implement state
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +16,10 @@ class Home extends StatelessWidget {
         title: Row(
           children: [
             Text(
-          'Pokédex',
-          style: TextStyle(
-              color: Theme.of(context).appBarTheme.titleTextStyle!.color,
-              fontSize: Theme.of(context).textTheme.titleLarge!.fontSize),
+              'Pokédex',
+              style: TextStyle(
+                  color: Theme.of(context).appBarTheme.titleTextStyle!.color,
+                  fontSize: Theme.of(context).textTheme.titleLarge!.fontSize),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 12.0),
@@ -50,9 +51,9 @@ class Home extends StatelessWidget {
               onTap: () {
                 exit(-1);
               },
-              tileColor: Colors.grey[800],
               iconColor: Theme.of(context).iconTheme.color,
               leading: const Icon(Icons.exit_to_app_rounded),
+              tileColor: Colors.indigo[700],
               title: Text(
                 'Exit',
                 style: TextStyle(
@@ -62,57 +63,9 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FutureBuilder(
-          //tive dificuldade de lembrar do FutureBuilder
-          future: getPokemons(),
-          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(child: const Text('Something went wrong'));
-            } else {
-              List<Map> pokemons = snapshot.data;
-              return CustomScrollView(
-                slivers: [
-                  SliverGrid(
-                    delegate: SliverChildBuilderDelegate(
-                      (context, int index) {
-                        return PokeCard(
-                          name: pokemons[index]['name']!,
-                          image: pokemons[index]['image'],
-                          id: pokemons[index]['id'],
-                        );
-                      },
-                      childCount: pokemons.length, //TODO: IMPLEMENT CHILD COUNT
-                    ),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                  ),
-                ],
-              );
-            }
-          },
-        ),
-      ),
+      body: const PokemonsList(),
     );
   }
 }
 
-Future<List<Map<String, dynamic>>> getPokemons() async {
-  PokemonService pokemon = PokemonService();
-  List<Pokemon> pokemonList = await pokemon.getAll();
-  List<Map<String, dynamic>> mapList = [];
-  for (var i = 0; i < pokemonList.length; i++) {
-    mapList.add({});
-    mapList[i]['name'] =
-        pokemonList[i].name.toString(); //todos em formato de string
-    mapList[i]['image'] = pokemonList[i].image.toString();
-    mapList[i]['id'] = pokemonList[i].id;
-  }
-  return mapList;
-}
+
