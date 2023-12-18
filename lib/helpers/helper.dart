@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/pokemons/pokemons.dart';
 
-idText(Pokemon pokemon, {TextStyle? theme}) {
+Text idText(Pokemon pokemon, {TextStyle? theme}) {
   switch (pokemon.id.toString().length) {
     case 1:
       return Text(
@@ -20,3 +20,8 @@ idText(Pokemon pokemon, {TextStyle? theme}) {
       );
   }
 }
+String pokemonNameUpperFirst(Pokemon pokemon) {
+      String name = pokemon.name
+          .replaceFirst(RegExp(pokemon.name[0]), pokemon.name[0].toUpperCase());
+      return name;
+    }
