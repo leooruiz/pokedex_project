@@ -12,17 +12,18 @@ ThemeData myTheme = ThemeData(
     iconTheme: const IconThemeData(color: Colors.white),
     textTheme: const TextTheme(
       bodySmall: TextStyle(
-        fontSize: 12,
+        fontSize: 11,
         color: Colors.white,
       ),
       bodyMedium: TextStyle(
-        fontSize: 14,
+        fontSize: 13,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(
-        fontSize: 16,
+        fontSize: 15,
         color: Colors.white,
+        overflow: TextOverflow.ellipsis
       ),
       titleLarge: TextStyle(
         fontSize: 22,
