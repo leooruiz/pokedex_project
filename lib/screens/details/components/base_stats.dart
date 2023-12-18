@@ -71,7 +71,7 @@ class BaseStats extends StatelessWidget {
                 )),
             Container(
               width: 1,
-              height: 180,
+              height: 150,
               color: typeColor(pokemon.type1),
             ),
             Expanded(
