@@ -18,7 +18,7 @@ class PokedexApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: myTheme,
-      home: const Home(),
+      initialRoute: 'home',
       routes: {
         'details': (context) => const Details(),
       },
