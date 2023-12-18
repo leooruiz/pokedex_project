@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/id_text.dart';
+import 'package:pokedex_project/helpers/helper.dart';
 import 'package:pokedex_project/pokemons/pokemons.dart';
 import 'package:pokedex_project/screens/details/components/about.dart';
 import 'package:pokedex_project/screens/details/components/base_stats.dart';
@@ -35,7 +35,7 @@ class Details extends StatelessWidget {
       ),
       body: Column(children: [
         Expanded(
-          flex: 1,
+          flex: 2,
           child: Container(
             width: double.infinity,
             color: typeColor(pokemon.type1),
@@ -47,7 +47,7 @@ class Details extends StatelessWidget {
           ),
         ),
         Expanded(
-            flex: 2,
+            flex: 5,
             child: Container(
               color: Theme.of(context).primaryColorDark,
               child: Column(
