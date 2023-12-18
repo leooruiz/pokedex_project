@@ -20,8 +20,7 @@ class PokeCard extends StatelessWidget {
       child: InkWell(
           borderRadius: BorderRadius.circular(20),
           child: Card(
-            color: cardTypeColor(pokemon.type1.toString()),
-            //TODO: MAKE ALL CARDS RESPONSIBLE
+            color: cardTypeColor(pokemon.type1),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -33,15 +32,24 @@ class PokeCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          flex: 4,
-                          child: Text(pokemonNameUpperFirst,
+                          flex: 35,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 3.0),
+                            child: Text(
+                              pokemonNameUpperFirst(pokemon),
                             style: Theme.of(context).textTheme.bodyLarge,
+                            ),
                           ),
                         ),
                         Expanded(
-                          flex: 1,
-                          child: idText(pokemon,
-                              theme: const TextStyle(color: Colors.white38)),
+                          flex: 10,
+                          child: idText(
+                            pokemon,
+                            theme: const TextStyle(
+                              color: Colors.white38,
+                              fontSize: 10,
+                            ),
+                          ),
                         )
                       ],
                     ),
