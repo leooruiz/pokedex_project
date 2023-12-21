@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:pokedex_project/helpers/wordings.dart';
 import 'package:pokedex_project/screens/home/components/pokemons_list.dart';
 
 class Home extends StatelessWidget {
