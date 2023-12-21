@@ -116,8 +116,11 @@ class PokeCard extends StatelessWidget {
             ),
           ),
           onTap: () {
-            Navigator.pushNamed(context, 'details',
-                arguments: Pokemon() = pokemon);
+            Navigator.pushNamed(
+              context,
+              Constants.details,
+              arguments: Pokemon() = pokemon,
+            );
           }),
     );
   }
