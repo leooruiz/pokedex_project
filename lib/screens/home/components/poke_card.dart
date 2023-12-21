@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_project/constants.dart';
 import 'package:pokedex_project/helpers/helper.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
+import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/card_color.dart';
 import 'package:pokedex_project/theme/type_color.dart';
 
@@ -34,19 +35,16 @@ class PokeCard extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 3.0),
                             child: Text(
-                              pokemonNameUpperFirst(pokemon),
+                              pokemonNameUpperFirst(pokemon: pokemon),
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 10,
-                          child: idText(
-                            pokemon,
-                            theme: const TextStyle(
-                              color: Colors.white38,
-                              fontSize: 10,
-                            ),
+                        idText(
+                          pokemon,
+                          theme: const TextStyle(
+                            color: Colors.white38,
+                            fontSize: 10,
                           ),
                         )
                       ],
