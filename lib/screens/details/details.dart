@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/helpers/helper.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
+import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/screens/details/components/about.dart';
 import 'package:pokedex_project/screens/details/components/base_stats.dart';
 import 'package:pokedex_project/screens/details/components/types.dart';
@@ -18,13 +18,7 @@ class Details extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: typeColor(pokemon.type1),
-        title: Text(
-          pokemon.name.toString().replaceFirst(
-                pokemon.name.toString()[0],
-                pokemon.name.toString()[0].toUpperCase(),
-              ),
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        title: Text(pokemonNameUpperFirst(pokemon: pokemon), style: Theme.of(context).textTheme.titleLarge,),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
