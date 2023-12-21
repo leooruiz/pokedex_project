@@ -42,19 +42,7 @@ class Home extends StatelessWidget {
                     color: Theme.of(context).textTheme.titleMedium!.color),
               ),
             ),
-            ListTile(
-              onTap: () {
-                exit(-1);
-              },
-              iconColor: Theme.of(context).iconTheme.color,
-              leading: const Icon(Icons.exit_to_app_rounded),
-              tileColor: Colors.indigo[700],
-              title: Text(
-                'Exit',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.titleMedium!.color),
-              ),
-            ),
+            ListTile(tileColor: Theme.of(context).listTileTheme.tileColor,),
           ],
         ),
       ),
