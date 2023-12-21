@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
+import 'package:pokedex_project/helpers/wordings.dart';
+import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/type_color.dart';
 
 class BaseStats extends StatelessWidget {
@@ -12,7 +13,7 @@ class BaseStats extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 15.0),
           child: Text(
-            'Base Stats',
+            Wordings().baseStats,
             style: TextStyle(
               color: typeColor(pokemon.type1),
               fontSize: 18,
@@ -28,42 +29,42 @@ class BaseStats extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'HP',
+                        Wordings().hp,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'ATK',
+                        Wordings().atk,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'DEF',
+                        Wordings().def,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'SATK',
+                        Wordings().satk,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'SDEF',
+                        Wordings().sdef,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
-                        'SPD',
+                        Wordings().spd,
                         style: TextStyle(color: typeColor(pokemon.type1)),
                       ),
                     ),

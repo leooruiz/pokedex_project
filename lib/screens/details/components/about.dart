@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/pokemons/pokemons.dart';
+import 'package:pokedex_project/helpers/wordings.dart';
+import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/type_color.dart';
 
 class About extends StatelessWidget {
@@ -13,7 +14,7 @@ class About extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
           child: Text(
-            'About',
+            Wordings().about,
             style: TextStyle(
               color: typeColor(pokemon.type1),
               fontSize: 18,
@@ -33,7 +34,7 @@ class About extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Weight',
+                                    Wordings().weight,
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
@@ -59,7 +60,7 @@ class About extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5.0),
                               child: Text(
-                                'Height',
+                                Wordings().height,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                             ),
@@ -82,7 +83,7 @@ class About extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5.0),
                               child: Text(
-                                'Main moves',
+                                Wordings().mainMoves,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                             ),
