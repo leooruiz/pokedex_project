@@ -36,24 +36,7 @@ class _PokemonsListState extends State<PokemonsList> {
                   delegate: SliverChildBuilderDelegate(
                     (context, int index) {
                       return PokeCard(
-                        pokemon: Pokemon(
-                          name: pokemons[index]['name'],
-                          image: pokemons[index]['image'],
-                          id: pokemons[index]['id'],
-                          type1: pokemons[index]['type1'],
-                          type2: pokemons[index]['type2'],
-                          bigImage: pokemons[index]['bigImage'],
-                          hp: pokemons[index]['hp'],
-                          attack: pokemons[index]['attack'],
-                          defense: pokemons[index]['defense'],
-                          specialAttack: pokemons[index]['specialAttack'],
-                          specialDefense: pokemons[index]['specialDefense'],
-                          speed: pokemons[index]['speed'],
-                          weight: pokemons[index]['weight'],
-                          height: pokemons[index]['height'],
-                          move1: pokemons[index]['move1'],
-                          move2: pokemons[index]['move2'],
-                        ),
+                pokemon: pokemons[index],
                       );
                     },
                     childCount: pokemons.length,
