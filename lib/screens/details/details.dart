@@ -40,7 +40,7 @@ class Details extends StatelessWidget {
             width: double.infinity,
             color: typeColor(pokemon.type1),
             child: Image.network(
-              pokemon.bigImage,
+              pokemon.detailsImage,
               fit: BoxFit.fitHeight,
               filterQuality: FilterQuality.high,
             ),

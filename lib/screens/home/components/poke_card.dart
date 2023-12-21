@@ -103,7 +103,7 @@ class PokeCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Image.network(
-                            pokemon.image,
+                            pokemon.cardImage,
                             fit: BoxFit.fitHeight,
                             filterQuality: FilterQuality.high,
                           ),

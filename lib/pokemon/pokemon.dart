@@ -1,10 +1,10 @@
 class Pokemon {
   final String name;
-  final String image;
+  final String cardImage;
   final int id;
   final String type1;
   final String? type2;
-  final String bigImage;
+  final String detailsImage;
   final int hp;
   final int attack;
   final int defense;
@@ -18,7 +18,7 @@ class Pokemon {
 
   Pokemon({
     required this.name,
-    required this.image,
+    required this.cardImage,
     required this.id,
     required this.type1,
     required this.hp,
@@ -29,7 +29,7 @@ class Pokemon {
     required this.speed,
     required this.weight,
     required this.height,
-    required this.bigImage,
+    required this.detailsImage,
     required this.move1,
     required this.move2,
     this.type2,
@@ -41,8 +41,8 @@ class Pokemon {
     return Pokemon(
       name: mainMap['name'],
       id: mainMap['id'],
-      image: mainMap['sprites']['other']['home']['front_default'],
-      bigImage: mainMap['sprites']['other']['official-artwork']
+      cardImage: mainMap['sprites']['other']['home']['front_default'],
+      detailsImage: mainMap['sprites']['other']['official-artwork']
           ['front_default'],
       type1: mainMap['types'][0]['type']['name'],
       type2: typeList.length == 1 ? null : mainMap['types'][1]['type']['name'],
@@ -60,8 +60,8 @@ class Pokemon {
           : mainMap['moves'][1]['move']['name'],
     );
   }
-  
+
   @override
   String toString() =>
-      'Pokemon(name: $name, image: $image, id: $id, type 1: $type1, type 2: $type1, bigImage: $bigImage)';
+      'Pokemon(name: $name, image: $cardImage, id: $id, type 1: $type1, type 2: $type1, bigImage: $detailsImage)';
 }
