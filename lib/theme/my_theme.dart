@@ -4,6 +4,7 @@ ThemeData myTheme = ThemeData(
     progressIndicatorTheme:
         const ProgressIndicatorThemeData(color: Colors.indigo),
     appBarTheme: const AppBarTheme(
+        shadowColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.indigo,
         titleTextStyle: TextStyle(
@@ -21,10 +22,7 @@ ThemeData myTheme = ThemeData(
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(
-        fontSize: 15,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis
-      ),
+          fontSize: 15, color: Colors.white, overflow: TextOverflow.ellipsis),
       titleLarge: TextStyle(
         fontSize: 22,
         color: Colors.white,
