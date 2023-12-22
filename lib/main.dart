@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/constants.dart';
+import 'package:pokedex_project/helpers/constants.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/screens/details/details.dart';
 import 'package:pokedex_project/theme/my_theme.dart';
