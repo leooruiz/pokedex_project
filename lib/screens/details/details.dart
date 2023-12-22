@@ -18,7 +18,10 @@ class Details extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: typeColor(pokemon.type1),
-        title: Text(pokemonNameUpperFirst(pokemon: pokemon), style: Theme.of(context).textTheme.titleLarge,),
+        title: Text(
+          pokemonNameUpperFirst(pokemon: pokemon),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
