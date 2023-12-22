@@ -30,7 +30,27 @@ class Details extends StatelessWidget {
           )
         ],
       ),
-      body: Column(children: [
+class _DetailsContent extends StatelessWidget {
+  const _DetailsContent({
+    required this.pokemon,
+  });
+
+  final Pokemon pokemon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme.of(context).primaryColorDark,
+      child: Column(
+        children: [
+          DescriptionTypes(pokemon: pokemon),
+          About(pokemon: pokemon),
+          BaseStats(pokemon: pokemon),
+        ],
+      ),
+    );
+  }
+}
         Expanded(
           flex: 2,
           child: Container(
