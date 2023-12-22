@@ -47,8 +47,8 @@ class _PokemonsListState extends State<PokemonsList> {
             },
             childCount: pokemons.length,
           ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: MediaQuery.of(context).orientation == Orientation.portrait? 2: 4),
         ),
       ],
     );
