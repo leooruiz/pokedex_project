@@ -30,11 +30,14 @@ class PokemonService {
         Map<String, dynamic> pokemonMap = json.decode(response.body);
         pokemonList.add(Pokemon.fromMap(pokemonMap));
       } else {
-        throw ResponseException();
+        continue;
       }
     }
-    return pokemonList;
+    if (pokemonList.isNotEmpty) {
+      return pokemonList;
+    }
+    throw ResponseException();
   }
 }
 
-class ResponseException implements Exception{}
+class ResponseException implements Exception {}
