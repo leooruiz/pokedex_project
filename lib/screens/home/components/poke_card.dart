@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/constants.dart';
-import 'package:pokedex_project/helpers/helper.dart';
+import 'package:pokedex_project/helpers/constants.dart';
+import 'package:pokedex_project/helpers/text_functions.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/card_color.dart';
 import 'package:pokedex_project/theme/type_color.dart';
@@ -15,7 +15,7 @@ class PokeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: const EdgeInsets.fromLTRB(5, 5, 5, 0),
       child: InkWell(
           borderRadius: BorderRadius.circular(20),
           child: Card(
