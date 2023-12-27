@@ -16,15 +16,20 @@ class PokemonsList extends StatefulWidget {
 class _PokemonsListState extends State<PokemonsList> {
   List<Pokemon> pokemons = [];
   bool isLoading = true;
+  int scrollIndex = 20;
+  final scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
+    scrollController.addListener(_scrollListener);
     pokemonsList();
   }
 
   void pokemonsList() async {
-    pokemons = await getPokemons();
+    // print('counting (${scrollIndex - 19} to $scrollIndex)');
+    isLoading = true;
+    pokemons += await getPokemons(scrollIndex);
     isLoading = false;
     setState(() {});
   }
@@ -32,11 +37,15 @@ class _PokemonsListState extends State<PokemonsList> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return const Center(
-        child: CircularProgressIndicator(),
+      return CustomScrollView(
+        controller: scrollController,
+        slivers:const  [
+          SliverToBoxAdapter(child: Center(heightFactor: 12,child: CircularProgressIndicator())),
+        ],
       );
     }
     return CustomScrollView(
+      controller: scrollController,
       slivers: [
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
@@ -52,5 +61,13 @@ class _PokemonsListState extends State<PokemonsList> {
         ),
       ],
     );
+  }
+
+  void _scrollListener() {
+    if (scrollController.position.maxScrollExtent ==
+        scrollController.position.pixels) {
+    scrollIndex += 20;
+      pokemonsList();
+    }
   }
 }
