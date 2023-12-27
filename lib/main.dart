@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/constants.dart';
+import 'package:pokedex_project/routes/routes.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/screens/details/details.dart';
 import 'package:pokedex_project/theme/my_theme.dart';
@@ -17,12 +17,12 @@ class PokedexApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: myTheme,
-      initialRoute: Constants.home,
+      initialRoute: Routes.home,
       routes: {
-        Constants.home: (context) => const Home(),
+        Routes.home: (context) => const Home(),
       },
       onGenerateRoute: (settings) {
-        if (settings.name == Constants.details) {
+        if (settings.name == Routes.details) {
           final Pokemon pokemon = settings.arguments as Pokemon;
           return MaterialPageRoute(
             builder: (context) {
