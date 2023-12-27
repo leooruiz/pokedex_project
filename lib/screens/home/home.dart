@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
         title: Row(
           children: [
             Text(
-              Wordings().pokedexFirstUpper,
+              Wordings.pokedexFirstUpper,
               style: TextStyle(
                   color: Theme.of(context).appBarTheme.titleTextStyle!.color,
                   fontSize: Theme.of(context).textTheme.titleLarge!.fontSize),
@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              child: Text(Wordings().pokedexFirstUpper,
+              child: Text(Wordings.pokedexFirstUpper,
                 style: TextStyle(
                     color: Theme.of(context).textTheme.titleMedium!.color),
               ),

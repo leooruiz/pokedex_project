@@ -14,7 +14,7 @@ class About extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
           child: Text(
-            Wordings().about,
+            Wordings.about,
             style: TextStyle(
               color: typeColor(pokemon.type1),
               fontSize: 18,
@@ -34,7 +34,7 @@ class About extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    Wordings().weight,
+                                    Wordings.weight,
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
@@ -60,7 +60,7 @@ class About extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5.0),
                               child: Text(
-                                Wordings().height,
+                                Wordings.height,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                             ),
@@ -83,7 +83,7 @@ class About extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5.0),
                               child: Text(
-                                Wordings().mainMoves,
+                                Wordings.mainMoves,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                             ),
