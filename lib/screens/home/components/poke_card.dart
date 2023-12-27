@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/constants.dart';
+import 'package:pokedex_project/routes/routes.dart';
 import 'package:pokedex_project/helpers/helper.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/card_color.dart';
@@ -31,7 +31,6 @@ class PokeCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          flex: 35,
                           child: Padding(
                             padding: const EdgeInsets.only(right: 3.0),
                             child: Text(
