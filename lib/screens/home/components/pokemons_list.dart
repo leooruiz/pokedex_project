@@ -18,6 +18,7 @@ class _PokemonsListState extends State<PokemonsList> {
   bool isLoading = true;
   int scrollIndex = 20;
   final scrollController = ScrollController();
+  bool isFetchingData = false;
 
   @override
   void initState() {
@@ -27,46 +28,78 @@ class _PokemonsListState extends State<PokemonsList> {
   }
 
   void pokemonsList() async {
-    // print('counting (${scrollIndex - 19} to $scrollIndex)');
-    isLoading = true;
-    pokemons += await getPokemons(scrollIndex);
-    isLoading = false;
-    setState(() {});
+    //tornar isFetchingData true caso ele for falso e começar funcao
+    if (!isFetchingData) {
+      setState(() {
+        isLoading = true;
+        isFetchingData = true;
+      });
+      List<Pokemon> newPokemons = await getPokemons(scrollIndex);
+      if (newPokemons.isNotEmpty) {
+        pokemons.addAll(newPokemons);
+        scrollIndex += 20;
+      }
+      isLoading = false;
+      setState(() {
+        isFetchingData = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
+    if (pokemons.isEmpty && isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (pokemons.isNotEmpty && isLoading) {
       return CustomScrollView(
         controller: scrollController,
-        slivers:const  [
-          SliverToBoxAdapter(child: Center(heightFactor: 12,child: CircularProgressIndicator())),
+        slivers: [
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (context, int index) {
+                return PokeCard(
+                  pokemon: pokemons[index],
+                );
+              },
+              childCount: pokemons.length,
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+          ),
+          const SliverToBoxAdapter(
+              child:
+                  Center(heightFactor: 2, child: CircularProgressIndicator())),
         ],
       );
-    }
-    return CustomScrollView(
-      controller: scrollController,
-      slivers: [
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            (context, int index) {
-              return PokeCard(
-                pokemon: pokemons[index],
-              );
-            },
-            childCount: pokemons.length,
+    } else if (pokemons.isNotEmpty && !isLoading) {
+      return CustomScrollView(
+        controller: scrollController,
+        slivers: [
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (context, int index) {
+                return PokeCard(
+                  pokemon: pokemons[index],
+                );
+              },
+              childCount: pokemons.length,
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
           ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
-        ),
-      ],
-    );
+        ],
+      );
+    } else {
+      return const Center(child: Text('Lost connection'));
+    }
   }
 
   void _scrollListener() {
-    if (scrollController.position.maxScrollExtent ==
-        scrollController.position.pixels) {
-    scrollIndex += 20;
+    if (scrollController.position.maxScrollExtent - 150 <=
+            scrollController.position.pixels &&
+        !isFetchingData) {
       pokemonsList();
     }
   }
