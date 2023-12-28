@@ -97,7 +97,7 @@ class _PokemonsListState extends State<PokemonsList> {
   }
 
   void _scrollListener() {
-    if (scrollController.position.maxScrollExtent - 150 <=
+    if (scrollController.position.maxScrollExtent - 180 <=
             scrollController.position.pixels &&
         !isFetchingData) {
       pokemonsList();
