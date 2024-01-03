@@ -52,7 +52,8 @@ class _PokemonsListState extends State<PokemonsList> {
       return const Center(
         child: CircularProgressIndicator(),
       );
-    } else if (pokemons.isNotEmpty && isLoading) {
+    }
+    if (pokemons.isNotEmpty && isLoading) {
       return CustomScrollView(
         controller: scrollController,
         slivers: [
@@ -73,7 +74,8 @@ class _PokemonsListState extends State<PokemonsList> {
                   Center(heightFactor: 2, child: CircularProgressIndicator())),
         ],
       );
-    } else if (pokemons.isNotEmpty && !isLoading) {
+    }
+    if (pokemons.isNotEmpty && !isLoading) {
       return CustomScrollView(
         controller: scrollController,
         slivers: [
@@ -86,14 +88,16 @@ class _PokemonsListState extends State<PokemonsList> {
               },
               childCount: pokemons.length,
             ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount:
+                    MediaQuery.of(context).orientation == Orientation.portrait
+                        ? 2
+                        : 4),
           ),
         ],
       );
-    } else {
-      return const Center(child: Text('Lost connection'));
     }
+    return const Center(child: Text('Lost connection'));
   }
 
   void _scrollListener() {
