@@ -51,8 +51,8 @@ class Pokemon {
       specialAttack: mainMap['stats'][3]['base_stat'],
       specialDefense: mainMap['stats'][4]['base_stat'],
       speed: mainMap['stats'][5]['base_stat'],
-      weight: mainMap['weight'],
-      height: mainMap['height'],
+      weight: mainMap['weight']*100, //grams
+      height: mainMap['height']*10, //centimeteres
       move1: mainMap['moves'][0]['move']['name'],
       move2: mainMovesList.length == 1
           ? null
