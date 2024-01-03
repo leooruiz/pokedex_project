@@ -42,8 +42,7 @@ class Pokemon {
       name: mainMap['name'],
       id: mainMap['id'],
       cardImage: mainMap['sprites']['other']['home']['front_default'],
-      detailsImage: mainMap['sprites']['other']['official-artwork']
-          ['front_default'],
+      detailsImage: mainMap['sprites']['other']['official-artwork']['front_default'],
       type1: mainMap['types'][0]['type']['name'],
       type2: typeList.length == 1 ? null : mainMap['types'][1]['type']['name'],
       hp: mainMap['stats'][0]['base_stat'],

@@ -35,8 +35,7 @@ class About extends StatelessWidget {
                                 children: [
                                   Text(
                                     Wordings.weight,
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
+                          style: Theme.of(context).textTheme.bodyMedium,
                                   ),
                                 ],
                               ),
@@ -97,8 +96,7 @@ class About extends StatelessWidget {
                             pokemon.move2 != null
                                 ? Text(
                                     pokemon.move2!,
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
+                          style: Theme.of(context).textTheme.bodySmall,
                                   )
                                 : const SizedBox(),
                           ],
