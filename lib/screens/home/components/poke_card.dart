@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/helpers/routes/routes.dart';
+import 'package:pokedex_project/helpers/constants.dart';
 import 'package:pokedex_project/helpers/text_functions.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/theme/card_color.dart';

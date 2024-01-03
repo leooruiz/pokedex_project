@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_project/helpers/constants.dart';
 import 'package:pokedex_project/routes/routes.dart';
 import 'package:pokedex_project/pokemon/pokemon.dart';
 import 'package:pokedex_project/screens/details/details.dart';
