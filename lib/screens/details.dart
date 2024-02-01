@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/helpers/text_functions.dart';
-import 'package:pokedex_project/pokemon/pokemon.dart';
-import 'package:pokedex_project/screens/details/components/about.dart';
-import 'package:pokedex_project/screens/details/components/base_stats.dart';
-import 'package:pokedex_project/screens/details/components/types.dart';
+import 'package:pokedex_project/models/pokemon.dart';
+import 'package:pokedex_project/screens/components/about.dart';
+import 'package:pokedex_project/screens/components/base_stats.dart';
+import 'package:pokedex_project/screens/components/types.dart';
 import 'package:pokedex_project/theme/type_color.dart';
 
 class Details extends StatelessWidget {

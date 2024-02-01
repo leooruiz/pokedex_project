@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/routes/routes.dart';
-import 'package:pokedex_project/pokemon/pokemon.dart';
-import 'package:pokedex_project/screens/details/details.dart';
+import 'package:pokedex_project/models/pokemon.dart';
+import 'package:pokedex_project/screens/details.dart';
 import 'package:pokedex_project/theme/my_theme.dart';
-import 'screens/home/home.dart';
+import 'screens/home.dart';
 
 void main() {
   runApp(const PokedexApp());

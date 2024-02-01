@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
-import 'package:pokedex_project/pokemon/pokemon.dart';
+import 'package:pokedex_project/models/pokemon.dart';
 import 'package:pokedex_project/services/http_interceptor.dart';
 
 class PokemonService {

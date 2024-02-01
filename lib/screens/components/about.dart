@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_project/helpers/wordings.dart';
-import 'package:pokedex_project/pokemon/pokemon.dart';
+import 'package:pokedex_project/models/pokemon.dart';
 import 'package:pokedex_project/theme/type_color.dart';
 
 class About extends StatelessWidget {
